@@ -1,0 +1,24 @@
+{
+  "name": "rust-plus-bot",
+  "version": "1.0.0",
+  "description": "Creating a Rust+ bot using rustplus.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebouman123/Rust-Plus-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebouman123/Rust-Plus-Bot/issues"
+  },
+  "homepage": "https://github.com/ebouman123/Rust-Plus-Bot#readme",
+  "dependencies": {
+    "@liamcottle/rustplus.js": "^2.5.0",
+    "gitignore": "^0.7.0"
+  }
+}
