@@ -21,7 +21,9 @@ rustplus.on("event", (event) => {
   // Debug: see full event structure
   console.log("Event received:", JSON.stringify(event, null, 2));
 
-  // 🔒 Locked Crate
+  rustplus.sendTeamMessage('Event spawned: ', event)
+
+  // Locked Crate
   if (event?.marker?.type === "LockedCrate") {
     const pos = event.marker.position;
     rustplus.sendTeamMessage(
@@ -29,7 +31,7 @@ rustplus.on("event", (event) => {
     );
   }
 
-  // 🛒 Traveling Vendor
+  // Traveling Vendor
   if (event?.marker?.type === "CH47Scientist") {
     const pos = event.marker.position;
     rustplus.sendTeamMessage(
@@ -86,29 +88,8 @@ function formatServerTime(timeFloat) {
         rustplus.sendTeamMessage(`Traveling Vendor spotted at X:${pos.x.toFixed(0)} Z:${pos.y.toFixed(0)}`);
       });
     },
-  
-    ".hello": (rustplus) => {
-      rustplus.sendTeamMessage("👋 Hello, team!");
-    },
+
   };
-  
-  // Update latest crates/vendors on events
-  rustplus.on("event", (event) => {
-    const marker = event?.marker;
-    if (!marker || !marker.position) return;
-  
-    // Locked Crate
-    if (marker.type === "LockedCrate") {
-      latestCrates.set(marker.id, marker.position);
-      rustplus.sendTeamMessage(`Locked Crate spawned at X:${marker.position.x.toFixed(0)} Z:${marker.position.y.toFixed(0)}`);
-    }
-  
-    // Traveling Vendor
-    if (marker.type === "CH47Scientist") {
-      latestVendors.set(marker.id, marker.position);
-      rustplus.sendTeamMessage(`Traveling Vendor spotted at X:${marker.position.x.toFixed(0)} Z:${marker.position.y.toFixed(0)}`);
-    }
-  });
   
   // Command listener
   rustplus.on("message", (packet) => {
