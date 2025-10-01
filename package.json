@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ebouman123/Rust-Plus-Bot#readme",
   "dependencies": {
     "@liamcottle/rustplus.js": "^2.5.0",
+    "dotenv": "^17.2.3",
     "gitignore": "^0.7.0"
   }
 }
